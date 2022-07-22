@@ -434,7 +434,9 @@ clue_count = 0
 #-------------------------------
 
 if __name__ == "__main__":
+    # sleep 2 secs
     time.sleep(2)
+    #
     resizeImage()
     x = random.randrange(100, 250)
     y = random.randrange(400, 500)
@@ -456,6 +458,6 @@ if __name__ == "__main__":
 
     firespots = ['firespot_varrock_wood', 'firespot_draynor_willow', 'firespot_draynor_oak'
         , 'firespot_farador_oak', 'firespot_draynor_wood']
-    powercutter(red, 'oak', firemaking=False, bank_items=True,
+    powercutter(yellow, 'oak', firemaking=True, bank_items=False,
                 spot='',
                 Take_Human_Break=True, Run_Duration_hours=Run_Duration_hours)

@@ -49,7 +49,7 @@ except OSError:
 if platform.system() == 'Linux' or platform.system() == 'Mac':
     filename = filename + "/jagexcache/oldschool/LIVE/"
 else:
-    filename = filename + "\\jagexcache\\oldschool\\LIVE\\"
+    filename = filename + "\\.runelite\\jagexcache\\oldschool\\LIVE\\"
 
 for f in os.listdir(filename):
     try:
@@ -441,7 +441,7 @@ def find_Object(item, left=0, top=0, right=0, bottom=0):
     image = cv2.imread('images/screenshot.png')
     image = cv2.rectangle(image, pt1=(600, 0), pt2=(850, 200), color=(0, 0, 0), thickness=-1)
     image = cv2.rectangle(image, pt1=(0, 0), pt2=(150, 100), color=(0, 0, 0), thickness=-1)
-    #cv2.imwrite('images/screenshot3.png', image)
+    cv2.imwrite('images/screenshot3.png', image)
     # define the list of boundaries
     # B, G, R
 
@@ -461,6 +461,7 @@ def find_Object(item, left=0, top=0, right=0, bottom=0):
         # find the colors within the specified boundaries and apply
         # the mask
         mask = cv2.inRange(image, lower, upper)
+        cv2.imwrite('images/screenshot4.png', mask)
         output = cv2.bitwise_and(image, image, mask=mask)
         ret, thresh = cv2.threshold(mask, 40, 255, 0)
         contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
